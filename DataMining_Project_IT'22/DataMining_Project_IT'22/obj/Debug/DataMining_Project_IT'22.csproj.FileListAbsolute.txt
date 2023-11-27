@@ -2,9 +2,9 @@ C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_I
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\bin\Debug\DataMining_Project_IT'22.exe
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\bin\Debug\DataMining_Project_IT'22.pdb
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.csproj.AssemblyReference.cache
-C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.Form1.resources
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.Properties.Resources.resources
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.csproj.GenerateResource.cache
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.csproj.CoreCompileInputs.cache
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.exe
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.pdb
+C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.FrmGini.resources

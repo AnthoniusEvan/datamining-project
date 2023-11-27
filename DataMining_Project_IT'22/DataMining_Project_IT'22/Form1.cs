@@ -17,7 +17,7 @@ namespace DataMining_Project_IT_22
             InitializeComponent();
         }
 
-        private void btnOpen_Click(object sender, EventArgs e)
+        private void btnImport_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Browse Records";
@@ -28,7 +28,9 @@ namespace DataMining_Project_IT_22
             {
                 var path = ofd.FileName;
                 string[] lines = System.IO.File.ReadAllLines(path);
-                dgvData.DataSource = ImportCSV.NewDataTable(path, ",", true);
+                if (lines[0].Contains(";"))
+                    dgvData.DataSource = ProjectLib.NewDataTable(path, ";", true);
+                else dgvData.DataSource = ProjectLib.NewDataTable(path, ",", true);
 
 
                 /*using (TextFieldParser csvParser = new TextFieldParser(path))
@@ -48,6 +50,12 @@ namespace DataMining_Project_IT_22
                         string Address = fields[1];
                     }*/
             }
-            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string attName;
+            ProjectLib.GetGini((DataTable)dgvData.DataSource);
+        }
     }
 }
