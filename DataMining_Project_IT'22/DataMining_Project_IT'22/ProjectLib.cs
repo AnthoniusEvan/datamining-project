@@ -97,15 +97,15 @@ namespace DataMining_Project_IT_22
         {
             Dictionary<string, double> GiniComparison = GetGini(table);
             double compareNum=0;
-            int index = 0;
+            string bestName="";
             foreach (KeyValuePair<string, double> kvp in GiniComparison)
             {
                 if (kvp.Value != 0)
                 {
                     compareNum = kvp.Value;
+                    bestName = kvp.Key;
                     break;
                 }
-                index++;
             }
             
             foreach (KeyValuePair<string, double> kvp in GiniComparison)
@@ -113,11 +113,11 @@ namespace DataMining_Project_IT_22
                 if (compareNum > kvp.Value && kvp.Value != 0)
                 {
                     compareNum = kvp.Value;
-                    index++;
+                    bestName = kvp.Key;
                 }
             }
-            double res = GiniComparison.ElementAt(index).Value;
-            name = GiniComparison.ElementAt(index).Key;
+            double res = compareNum;
+            name = bestName;
             List<string> classes = new List<string>();
             foreach (DataRow row in table.Rows)
             {
