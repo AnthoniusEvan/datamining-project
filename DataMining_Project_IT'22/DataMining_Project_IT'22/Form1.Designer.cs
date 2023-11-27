@@ -34,6 +34,7 @@ namespace DataMining_Project_IT_22
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.lblBestSplit = new System.Windows.Forms.Label();
+            this.btnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +44,6 @@ namespace DataMining_Project_IT_22
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(621, 92);
             this.label1.TabIndex = 0;
-            this.label1.Text = "lblInfo";
             // 
             // btnImport
             // 
@@ -83,11 +83,22 @@ namespace DataMining_Project_IT_22
             this.lblBestSplit.TabIndex = 4;
             this.lblBestSplit.Text = "Best Split result";
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(673, 524);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(190, 73);
+            this.btnExport.TabIndex = 5;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // FrmGini
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 627);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.lblBestSplit);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvData);
@@ -108,6 +119,7 @@ namespace DataMining_Project_IT_22
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblBestSplit;
+        private System.Windows.Forms.Button btnExport;
     }
 }
 

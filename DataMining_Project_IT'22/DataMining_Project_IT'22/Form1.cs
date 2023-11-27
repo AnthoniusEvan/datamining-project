@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,14 +55,48 @@ namespace DataMining_Project_IT_22
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Dictionary<string, double> res = ProjectLib.GetGini((DataTable)dgvData.DataSource);
-            label1.Text = "";
-            foreach (KeyValuePair<string, double> kvp in res)
-                label1.Text += String.Format("Name: {0}, GINI: {1} ", kvp.Key, kvp.Value);
-            string name;
-            double gain;
-            double value = ProjectLib.CalculateBestSplit((DataTable)dgvData.DataSource, out name, out gain);
-            lblBestSplit.Text = "The best attribut to split: " + name + " - " + value + "- GAIN: " + gain;   
+            try
+            {
+                if (dgvData.DataSource != null)
+                {
+                    Dictionary<string, double> res = ProjectLib.GetGini((DataTable)dgvData.DataSource);
+                    label1.Text = "";
+                    foreach (KeyValuePair<string, double> kvp in res)
+                        label1.Text += String.Format("Name: {0}, GINI: {1};", kvp.Key, kvp.Value);
+                    string name;
+                    double gain;
+                    double value = ProjectLib.CalculateBestSplit((DataTable)dgvData.DataSource, out name, out gain);
+                    lblBestSplit.Text = String.Format("The best attribut to split:\nName: {0}, GINI: {1}, GAIN: {2}", name, value, gain);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (label1.Text != "")
+            {
+                string[] texts = label1.Text.Split(';');
+                string createText = "";
+                foreach (string text in texts)
+                {
+                    createText += text + "\n";
+                }
+                createText += lblBestSplit.Text;
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Title = "Export to File";
+                sfd.DefaultExt = "txt";
+                sfd.Filter = "txt files (*.txt)|*.txt|out files (*.out)|*.out";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(sfd.FileName, createText);
+                }
+            }
         }
     }
 }
