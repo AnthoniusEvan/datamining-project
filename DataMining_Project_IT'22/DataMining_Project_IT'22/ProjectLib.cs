@@ -46,6 +46,8 @@ namespace DataMining_Project_IT_22
 
         public static Dictionary<string, double> GetGini(DataTable table)
         {
+            // Assuming that the classification is on the last column
+
             List<string> classes = new List<string>();
             Dictionary<string, double> giniRes = new Dictionary<string, double>();
 
@@ -57,15 +59,14 @@ namespace DataMining_Project_IT_22
             for (int i = 0; i < table.Columns.Count - 1; i++)
             {
                 List<string> val = new List<string>();
-                double res=0;
+      
                 foreach (DataRow row in table.Rows)
                 {
                     if (!val.Contains(row[i])) val.Add(row[i].ToString());
                 }
-
+                double MA = 0;
                 foreach (string v in val)
                 {
-                    double MA = 0;
                     double gini = 1;
                     double prob = 0;
                     int count = 0;
@@ -78,35 +79,51 @@ namespace DataMining_Project_IT_22
                         {
                             if (v == (string)row[i] && c == (string)row[last])
                                 count++;
-                            total++;
+                            if (v == (string)row[i]) total++;
                         }
-                        prob = count / total;
+                        prob = (double)count / (double)total;
                         gini -= Math.Pow(prob, 2);
                     }
-                    
-
+                    MA += (double)((double)total / (double)table.Rows.Count) * gini;
                 }
 
-                giniRes.Add(table.Columns[i].ColumnName, res);
+                giniRes.Add(table.Columns[i].ColumnName, MA);
             }
-
-        
 
             return giniRes;
         }
 
-        public static double CalculateBestSplit(DataTable table, out string name)
+        public static double CalculateBestSplit(DataTable table, out string name, out double gain)
         {
             Dictionary<string, double> GiniComparison = GetGini(table);
-            /*for (int i = 0; i<table.Columns.Count; i++)
+            double compareNum=0;
+            int index = 0;
+            foreach (KeyValuePair<string, double> kvp in GiniComparison)
             {
-                DataTable dt = new DataTable();
-                dt.Columns.Add(table.Columns[i]);
-                dt.Columns.Add(table.Columns[table.Columns.Count - 1]);
-                GiniComparison.Add(table.Columns[i].ColumnName, GetGini(dt));
-            }*/
-            double res = 0;
-            name = "";
+                if (kvp.Value != 0)
+                {
+                    compareNum = kvp.Value;
+                    break;
+                }
+                index++;
+            }
+            
+            foreach (KeyValuePair<string, double> kvp in GiniComparison)
+            {
+                if (compareNum > kvp.Value && kvp.Value != 0)
+                {
+                    compareNum = kvp.Value;
+                    index++;
+                }
+            }
+            double res = GiniComparison.ElementAt(index).Value;
+            name = GiniComparison.ElementAt(index).Key;
+            List<string> classes = new List<string>();
+            foreach (DataRow row in table.Rows)
+            {
+                if (!classes.Contains(row[row.ItemArray.Length - 1])) classes.Add((string)row[row.ItemArray.Length - 1]);
+            }
+            gain = (1 - (double)(1 / (double)classes.Count)) - res;
             return res;
         }
     }

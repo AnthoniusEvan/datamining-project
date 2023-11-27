@@ -54,8 +54,14 @@ namespace DataMining_Project_IT_22
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string attName;
-            ProjectLib.GetGini((DataTable)dgvData.DataSource);
+            Dictionary<string, double> res = ProjectLib.GetGini((DataTable)dgvData.DataSource);
+            label1.Text = "";
+            foreach (KeyValuePair<string, double> kvp in res)
+                label1.Text += String.Format("Name: {0}, GINI: {1} ", kvp.Key, kvp.Value);
+            string name;
+            double gain;
+            double value = ProjectLib.CalculateBestSplit((DataTable)dgvData.DataSource, out name, out gain);
+            lblBestSplit.Text = "The best attribut to split: " + name + " - " + value + "- GAIN: " + gain;   
         }
     }
 }

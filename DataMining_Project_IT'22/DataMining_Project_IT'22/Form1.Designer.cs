@@ -33,19 +33,17 @@ namespace DataMining_Project_IT_22
             this.btnImport = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblBestSplit = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(27, 430);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.Size = new System.Drawing.Size(621, 92);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "lblInfo";
             // 
             // btnImport
             // 
@@ -77,31 +75,20 @@ namespace DataMining_Project_IT_22
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label2
+            // lblBestSplit
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(194, 430);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(369, 430);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "label3";
+            this.lblBestSplit.Location = new System.Drawing.Point(27, 550);
+            this.lblBestSplit.Name = "lblBestSplit";
+            this.lblBestSplit.Size = new System.Drawing.Size(408, 51);
+            this.lblBestSplit.TabIndex = 4;
+            this.lblBestSplit.Text = "Best Split result";
             // 
             // FrmGini
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 562);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(900, 627);
+            this.Controls.Add(this.lblBestSplit);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.btnImport);
@@ -111,7 +98,6 @@ namespace DataMining_Project_IT_22
             this.Text = "Best Split Finder";
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -121,8 +107,7 @@ namespace DataMining_Project_IT_22
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblBestSplit;
     }
 }
 
