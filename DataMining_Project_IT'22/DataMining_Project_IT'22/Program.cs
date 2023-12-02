@@ -16,7 +16,7 @@ namespace DataMining_Project_IT_22
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmGini());
+            Application.Run(new FrmMain());
         }
     }
 }

@@ -8,3 +8,17 @@ C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_I
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.exe
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.pdb
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.FrmGini.resources
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\bin\Debug\DataMining_Project_IT'22.exe.config
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\bin\Debug\DataMining_Project_IT'22.exe
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\bin\Debug\DataMining_Project_IT'22.pdb
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.FrmGini.resources
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.Properties.Resources.resources
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.csproj.GenerateResource.cache
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.csproj.CoreCompileInputs.cache
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.exe
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.pdb
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.FrmMain.resources
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.Proxy_MAtrix.resources
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.csproj.AssemblyReference.cache
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.Gini.resources
+F:\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.Cluster.resources
