@@ -126,5 +126,29 @@ namespace DataMining_Project_IT_22
             gain = (1 - (double)(1 / (double)classes.Count)) - res;
             return res;
         }
+
+        private static double CalculateDistance(List<double> p1, List<double> p2, int type)
+        {
+            double res = 0;
+            for (int i = 0; i < p1.Count; i++)
+            {
+                res += Math.Pow(p1[i] - p2[i], type);
+            }
+            res = Math.Pow(res, (double)(1 / (double)type));
+            return res;
+        }
+        public static double CalculateCityBlockDistance(List<double> p1, List<double> p2)
+        {
+            return CalculateDistance(p1, p2, 1);
+        }
+        public static double CalculateEuclideanDistance(List<double> p1, List<double> p2)
+        {
+            return CalculateDistance(p1, p2, 2);
+        }
+
+        public static void ClusterData()
+        {
+
+        }
     }
 }
