@@ -40,16 +40,18 @@ namespace DataMining_Project_IT_22
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(27, 430);
+            this.label1.Location = new System.Drawing.Point(24, 344);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(621, 92);
+            this.label1.Size = new System.Drawing.Size(552, 74);
             this.label1.TabIndex = 0;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(673, 32);
+            this.btnImport.Location = new System.Drawing.Point(598, 26);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(190, 73);
+            this.btnImport.Size = new System.Drawing.Size(169, 58);
             this.btnImport.TabIndex = 1;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -58,18 +60,22 @@ namespace DataMining_Project_IT_22
             // dgvData
             // 
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Location = new System.Drawing.Point(31, 132);
+            this.dgvData.Location = new System.Drawing.Point(28, 106);
+            this.dgvData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvData.Name = "dgvData";
             this.dgvData.RowHeadersWidth = 62;
             this.dgvData.RowTemplate.Height = 28;
-            this.dgvData.Size = new System.Drawing.Size(832, 263);
+            this.dgvData.Size = new System.Drawing.Size(740, 210);
             this.dgvData.TabIndex = 2;
+            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(673, 430);
+            this.button1.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(598, 344);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 73);
+            this.button1.Size = new System.Drawing.Size(169, 58);
             this.button1.TabIndex = 3;
             this.button1.Text = "Calculate Best Split";
             this.button1.UseVisualStyleBackColor = true;
@@ -77,17 +83,19 @@ namespace DataMining_Project_IT_22
             // 
             // lblBestSplit
             // 
-            this.lblBestSplit.Location = new System.Drawing.Point(27, 550);
+            this.lblBestSplit.Location = new System.Drawing.Point(24, 440);
             this.lblBestSplit.Name = "lblBestSplit";
-            this.lblBestSplit.Size = new System.Drawing.Size(408, 51);
+            this.lblBestSplit.Size = new System.Drawing.Size(363, 41);
             this.lblBestSplit.TabIndex = 4;
             this.lblBestSplit.Text = "Best Split result";
+            this.lblBestSplit.Click += new System.EventHandler(this.lblBestSplit_Click);
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(673, 524);
+            this.btnExport.Location = new System.Drawing.Point(598, 419);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(190, 73);
+            this.btnExport.Size = new System.Drawing.Size(169, 58);
             this.btnExport.TabIndex = 5;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -95,18 +103,18 @@ namespace DataMining_Project_IT_22
             // 
             // FrmGini
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 627);
+            this.ClientSize = new System.Drawing.Size(800, 502);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.lblBestSplit);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmGini";
             this.Text = "Best Split Finder";
+            this.Load += new System.EventHandler(this.FrmGini_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
 

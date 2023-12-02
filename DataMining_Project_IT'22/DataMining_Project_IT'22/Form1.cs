@@ -98,5 +98,28 @@ namespace DataMining_Project_IT_22
                 }
             }
         }
+
+        private void FrmGini_Load(object sender, EventArgs e)
+        {
+            dgvData.EnableHeadersVisualStyles = false;
+            dgvData.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(109, 122, 224);
+            dgvData.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvData.ColumnHeadersDefaultCellStyle.Font = new Font ("Montserrat", 8,FontStyle.Bold);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBestSplit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
