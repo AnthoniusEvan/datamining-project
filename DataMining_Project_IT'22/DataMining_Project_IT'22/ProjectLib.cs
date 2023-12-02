@@ -44,7 +44,7 @@ namespace DataMining_Project_IT_22
             return result;
         }
 
-        public static Dictionary<string, double> GetGini(DataTable table)
+        public static Dictionary<string, double> GetGini(DataTable table, int classIndex)
         {
             // Assuming that the classification is on the last column
 
@@ -53,9 +53,9 @@ namespace DataMining_Project_IT_22
 
             foreach (DataRow row in table.Rows)
             {
-                if (!classes.Contains(row[row.ItemArray.Length - 1])) classes.Add((string)row[row.ItemArray.Length - 1]);
+                if (!classes.Contains(row[classIndex])) classes.Add((string)row[classIndex]);
             }
-            int last = table.Columns.Count - 1;
+            //int last = table.Columns.Count - 1;
             for (int i = 0; i < table.Columns.Count - 1; i++)
             {
                 List<string> val = new List<string>();
@@ -77,7 +77,7 @@ namespace DataMining_Project_IT_22
                         total = 0;
                         foreach (DataRow row in table.Rows)
                         {
-                            if (v == (string)row[i] && c == (string)row[last])
+                            if (v == (string)row[i] && c == (string)row[classIndex])
                                 count++;
                             if (v == (string)row[i]) total++;
                         }
@@ -93,9 +93,9 @@ namespace DataMining_Project_IT_22
             return giniRes;
         }
 
-        public static double CalculateBestSplit(DataTable table, out string name, out double gain)
+        public static double CalculateBestSplit(DataTable table,int classIndex, out string name, out double gain)
         {
-            Dictionary<string, double> GiniComparison = GetGini(table);
+            Dictionary<string, double> GiniComparison = GetGini(table,classIndex);
             double compareNum=0;
             string bestName="";
             foreach (KeyValuePair<string, double> kvp in GiniComparison)
