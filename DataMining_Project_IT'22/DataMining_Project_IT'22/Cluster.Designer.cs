@@ -29,37 +29,87 @@ namespace DataMining_Project_IT_22
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlMenu = new System.Windows.Forms.Panel();
+            this.lblWarning = new System.Windows.Forms.Label();
+            this.btnResetTable = new System.Windows.Forms.Button();
+            this.nudK = new System.Windows.Forms.NumericUpDown();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCluster = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExport = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.btnImport = new System.Windows.Forms.Button();
-            this.lblInfo = new System.Windows.Forms.Label();
-            this.nudK = new System.Windows.Forms.NumericUpDown();
-            this.btnResetTable = new System.Windows.Forms.Button();
-            this.lblWarning = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
+            this.pnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudK)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudK)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
+            // pnlMenu
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Controls.Add(this.lblWarning);
-            this.panel2.Controls.Add(this.btnResetTable);
-            this.panel2.Controls.Add(this.nudK);
-            this.panel2.Controls.Add(this.lblInfo);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.btnCluster);
-            this.panel2.Location = new System.Drawing.Point(16, 14);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(281, 554);
-            this.panel2.TabIndex = 23;
+            this.pnlMenu.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlMenu.Controls.Add(this.lblWarning);
+            this.pnlMenu.Controls.Add(this.btnResetTable);
+            this.pnlMenu.Controls.Add(this.nudK);
+            this.pnlMenu.Controls.Add(this.lblInfo);
+            this.pnlMenu.Controls.Add(this.label2);
+            this.pnlMenu.Controls.Add(this.btnCluster);
+            this.pnlMenu.Enabled = false;
+            this.pnlMenu.Location = new System.Drawing.Point(16, 14);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(281, 554);
+            this.pnlMenu.TabIndex = 23;
+            // 
+            // lblWarning
+            // 
+            this.lblWarning.Font = new System.Drawing.Font("Montserrat Medium", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWarning.ForeColor = System.Drawing.Color.Red;
+            this.lblWarning.Location = new System.Drawing.Point(22, 69);
+            this.lblWarning.Name = "lblWarning";
+            this.lblWarning.Size = new System.Drawing.Size(243, 40);
+            this.lblWarning.TabIndex = 22;
+            this.lblWarning.Text = "Click Header Column to Remove from Cluster Analysis (Optional)";
+            this.lblWarning.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnResetTable
+            // 
+            this.btnResetTable.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetTable.Location = new System.Drawing.Point(22, 111);
+            this.btnResetTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnResetTable.Name = "btnResetTable";
+            this.btnResetTable.Size = new System.Drawing.Size(243, 54);
+            this.btnResetTable.TabIndex = 21;
+            this.btnResetTable.Text = "Reset Table";
+            this.btnResetTable.UseVisualStyleBackColor = true;
+            this.btnResetTable.Click += new System.EventHandler(this.btnResetTable_Click);
+            // 
+            // nudK
+            // 
+            this.nudK.Location = new System.Drawing.Point(84, 30);
+            this.nudK.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nudK.Name = "nudK";
+            this.nudK.Size = new System.Drawing.Size(156, 26);
+            this.nudK.TabIndex = 20;
+            this.nudK.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblInfo.Font = new System.Drawing.Font("Montserrat Medium", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(18, 257);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(247, 276);
+            this.lblInfo.TabIndex = 19;
             // 
             // label2
             // 
@@ -129,75 +179,26 @@ namespace DataMining_Project_IT_22
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
-            // lblInfo
-            // 
-            this.lblInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lblInfo.Font = new System.Drawing.Font("Montserrat Medium", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(18, 257);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(247, 276);
-            this.lblInfo.TabIndex = 19;
-            // 
-            // nudK
-            // 
-            this.nudK.Location = new System.Drawing.Point(84, 30);
-            this.nudK.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.nudK.Name = "nudK";
-            this.nudK.Size = new System.Drawing.Size(156, 26);
-            this.nudK.TabIndex = 20;
-            this.nudK.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
-            // btnResetTable
-            // 
-            this.btnResetTable.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetTable.Location = new System.Drawing.Point(22, 111);
-            this.btnResetTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnResetTable.Name = "btnResetTable";
-            this.btnResetTable.Size = new System.Drawing.Size(243, 54);
-            this.btnResetTable.TabIndex = 21;
-            this.btnResetTable.Text = "Reset Table";
-            this.btnResetTable.UseVisualStyleBackColor = true;
-            this.btnResetTable.Click += new System.EventHandler(this.btnResetTable_Click);
-            // 
-            // lblWarning
-            // 
-            this.lblWarning.Font = new System.Drawing.Font("Montserrat Medium", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblWarning.Location = new System.Drawing.Point(22, 69);
-            this.lblWarning.Name = "lblWarning";
-            this.lblWarning.Size = new System.Drawing.Size(243, 40);
-            this.lblWarning.TabIndex = 22;
-            this.lblWarning.Text = "Click Header Column to Remove from Cluster Analysis (Optional)";
-            this.lblWarning.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // Cluster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Cluster";
             this.Size = new System.Drawing.Size(1199, 581);
-            this.panel2.ResumeLayout(false);
+            this.pnlMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudK)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudK)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCluster;
         private System.Windows.Forms.Panel panel1;

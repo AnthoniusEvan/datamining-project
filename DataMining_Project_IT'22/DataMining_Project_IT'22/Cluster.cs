@@ -31,6 +31,7 @@ namespace DataMining_Project_IT_22
                 if (lines[0].Contains(";"))
                     dgvData.DataSource = ProjectLib.NewDataTable(path, ";", true);
                 else dgvData.DataSource = ProjectLib.NewDataTable(path, ",", true);
+                pnlMenu.Enabled = true;
             }
         }
 

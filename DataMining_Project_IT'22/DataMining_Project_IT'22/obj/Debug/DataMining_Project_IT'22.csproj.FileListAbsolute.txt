@@ -25,3 +25,4 @@ C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_I
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.FrmMain.resources
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.Gini.resources
 C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT_22.Proxy_MAtrix.resources
+C:\Users\Anthonius Evan\Documents\GitHub\datamining-project\DataMining_Project_IT'22\DataMining_Project_IT'22\obj\Debug\DataMining_Project_IT'22.csproj.AssemblyReference.cache

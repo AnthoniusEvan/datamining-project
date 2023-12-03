@@ -33,11 +33,14 @@ namespace DataMining_Project_IT_22
                     dgvData.DataSource = ProjectLib.NewDataTable(path, ";", true);
                 else dgvData.DataSource = ProjectLib.NewDataTable(path, ",", true);
 
+                cbClass.Items.Clear();
                 for (int i = 0; i < dgvData.Columns.Count; i++)
                 {
                     cbClass.Items.Add(dgvData.Columns[i].Name);
                 }
                 cbClass.SelectedIndex = dgvData.Columns.Count - 1;
+
+                pnlMenu.Enabled = true;
             }
         }
 

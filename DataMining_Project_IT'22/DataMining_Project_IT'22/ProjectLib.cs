@@ -127,34 +127,99 @@ namespace DataMining_Project_IT_22
             return res;
         }
 
-        private static double CalculateDistance(List<double> p1, List<double> p2, int type)
+        private static double CalculateDistance(DataRow p1, DataRow p2, int type)
         {
             double res = 0;
-            for (int i = 0; i < p1.Count; i++)
+            for (int i = 1; i < p1.ItemArray.Count(); i++)
             {
-                res += Math.Pow(p1[i] - p2[i], type);
+                res += Math.Pow(Math.Abs(Convert.ToDouble(p1[i]) - Convert.ToDouble(p2[i])), type);
             }
             res = Math.Pow(res, (double)(1 / (double)type));
             return res;
         }
-        public static double CalculateCityBlockDistance(List<double> p1, List<double> p2)
+        public static double CalculateCityBlockDistance(DataRow p1, DataRow p2)
         {
             return CalculateDistance(p1, p2, 1);
         }
-        public static double CalculateEuclideanDistance(List<double> p1, List<double> p2)
+        public static double CalculateEuclideanDistance(DataRow p1, DataRow p2)
         {
             return CalculateDistance(p1, p2, 2);
+        }
+        public static double CalculateSupremumDistance(DataRow p1, DataRow p2)
+        {
+            List<double> values = new List<double>();
+            for (int i = 1; i < p1.ItemArray.Count(); i++)
+            {
+                values.Add(Math.Abs(Convert.ToDouble(p1[i]) - Convert.ToDouble(p2[i])));
+            }
+            double res = values[0];
+            foreach(double v in values)
+            {
+                if (v > res) res = v;
+            }
+            return res;
         }
 
         public static void ClusterData(DataTable table, int k)
         {
             Random rnd = new Random();
+            // store the centroid coordinates
             List<double[]> centroids = new List<double[]>();
+
+            // the set containing all the record within a cluster group
+            List<List<DataRow>> members = new List<List<DataRow>>();
+
+            // only temp var to be added to the list
+            List<DataRow> dr = new List<DataRow>();
             double[] p = new double[table.Columns.Count];
-            for (int i = 0; i < k; i++) {
+
+            for (int i = 0; i < k; i++)
+            {
+                centroids.Add(p);
+                members.Add(dr);
+            }
+
+            foreach (DataRow row in table.Rows)
+            {
+                members[rnd.Next(0, k)].Add(row);
+            }
+
+            CalculateCentroidCoordinates(members, out centroids);
+
+            List<double[]> newCentroids = new List<double[]>();
+            while (centroids != newCentroids)
+            {
+                if (newCentroids.Count > 0)
+                {
+                    centroids = newCentroids;
+                }
+               
+
+            }
+        }
+        private static void CalculateCentroidCoordinates(List<List<DataRow>> members, out List<double[]> centroids)
+        {
+            double[] p = new double[members[0][0].ItemArray.Count()];
+
+            centroids = new List<double[]>();
+            for (int i = 0; i < members.Count; i++)
+            {
                 centroids.Add(p);
             }
 
+            for (int i = 0; i < members.Count; i++)
+            {
+                for (int j = 0; j < members[i][0].ItemArray.Count(); j++)
+                {
+                    double res = 0;
+                    for (int l = 0; l < members[i].Count; l++)
+                    {
+                        res += Convert.ToDouble(members[i][l][j]);
+                    }
+                    res = (double)(res / (double)members[i].Count);
+                    centroids[i][j] = res;
+                }
+            }
         }
     }
 }

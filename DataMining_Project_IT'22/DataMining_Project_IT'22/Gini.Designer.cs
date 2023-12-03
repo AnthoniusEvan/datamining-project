@@ -29,34 +29,35 @@ namespace DataMining_Project_IT_22
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlMenu = new System.Windows.Forms.Panel();
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.btnCalc = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExport = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.btnImport = new System.Windows.Forms.Button();
-            this.lblInfo = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
+            this.pnlMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
+            // pnlMenu
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Controls.Add(this.cbClass);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.lblInfo);
-            this.panel2.Controls.Add(this.btnCalc);
-            this.panel2.Controls.Add(this.lblResult);
-            this.panel2.Location = new System.Drawing.Point(10, 14);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(281, 554);
-            this.panel2.TabIndex = 21;
+            this.pnlMenu.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlMenu.Controls.Add(this.cbClass);
+            this.pnlMenu.Controls.Add(this.label2);
+            this.pnlMenu.Controls.Add(this.lblInfo);
+            this.pnlMenu.Controls.Add(this.btnCalc);
+            this.pnlMenu.Controls.Add(this.lblResult);
+            this.pnlMenu.Enabled = false;
+            this.pnlMenu.Location = new System.Drawing.Point(10, 14);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(281, 554);
+            this.pnlMenu.TabIndex = 21;
             // 
             // cbClass
             // 
@@ -75,6 +76,15 @@ namespace DataMining_Project_IT_22
             this.label2.Size = new System.Drawing.Size(251, 40);
             this.label2.TabIndex = 17;
             this.label2.Text = "Class: ";
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblInfo.Font = new System.Drawing.Font("Montserrat Medium", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(18, 156);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(247, 276);
+            this.lblInfo.TabIndex = 12;
             // 
             // btnCalc
             // 
@@ -144,25 +154,16 @@ namespace DataMining_Project_IT_22
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
-            // lblInfo
-            // 
-            this.lblInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lblInfo.Font = new System.Drawing.Font("Montserrat Medium", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(18, 156);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(247, 276);
-            this.lblInfo.TabIndex = 12;
-            // 
             // Gini
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Gini";
             this.Size = new System.Drawing.Size(1199, 581);
-            this.panel2.ResumeLayout(false);
+            this.pnlMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
@@ -171,7 +172,7 @@ namespace DataMining_Project_IT_22
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Button btnCalc;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvData;

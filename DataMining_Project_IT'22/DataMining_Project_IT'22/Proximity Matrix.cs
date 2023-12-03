@@ -33,6 +33,8 @@ namespace DataMining_Project_IT_22
                 if (lines[0].Contains(";"))
                     dgvData.DataSource = ProjectLib.NewDataTable(path, ";", true);
                 else dgvData.DataSource = ProjectLib.NewDataTable(path, ",", true);
+
+                pnlMenu.Enabled = true;
             }
         }
         private void Proxy_MAtrix_Load(object sender, EventArgs e)
@@ -66,13 +68,16 @@ namespace DataMining_Project_IT_22
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnCalc_Click(object sender, EventArgs e)
         {
             try
             {
                 if (dgvData.DataSource != null)
                 {
-                    
+                    if (cbDistanceType.SelectedIndex == 1)
+                    {
+
+                    }
                     lblResult.BackColor = Color.LightSteelBlue;
                 }
             }
@@ -81,27 +86,72 @@ namespace DataMining_Project_IT_22
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void rdbMahal_CheckedChanged(object sender, EventArgs e)
+        string selected1="", selected2 = "";
+        int row1=0, row2=0;
+        private void dgvData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            CheckedDistance();
+            if (e.RowIndex > -1 && e.ColumnIndex == 0)
+            {
+                if (selected1 == "") {
+                    selected1 = dgvData.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                    row1 = e.RowIndex;
+                }
+                else {
+                    selected2 = dgvData.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                    row2 = e.RowIndex;
+                }
+
+                CalculateManualSelection();
+            }
         }
 
-        private void rdbMink_CheckedChanged(object sender, EventArgs e)
+        private void lblReset_Click(object sender, EventArgs e)
         {
-            CheckedDistance();
+            if (selected1 != "" && selected2 != "")
+            {
+                lblCalculate.Text = "D(_, _) = ";
+                lblReset.Text = "Click the first column of a row to select it";
+                selected1 = "";
+                selected2 = "";
+            }
         }
-        private void CheckedDistance()
+        private void CalculateManualSelection()
         {
-            if (rdbMahal.Checked)
+            lblCalculate.Text = string.Format("D({0}, {1}) = ", selected1, selected2);
+            if (selected1 != "" && selected2 != "")
             {
-                cbDistanceType.SelectedIndex = -1;
-                cbDistanceType.Enabled = false;
+                lblReset.Text = "Click here to reset calculation";
+
+                double res = 0;
+                if (cbDistanceType.SelectedIndex == 0)
+                {
+                    res = ProjectLib.CalculateCityBlockDistance(((DataTable)dgvData.DataSource).Rows[row1], ((DataTable)dgvData.DataSource).Rows[row2]);
+                }
+                else if (cbDistanceType.SelectedIndex == 1)
+                {
+                    res = ProjectLib.CalculateEuclideanDistance(((DataTable)dgvData.DataSource).Rows[row1], ((DataTable)dgvData.DataSource).Rows[row2]);
+                }
+                else if (cbDistanceType.SelectedIndex == 2)
+                {
+                    res = ProjectLib.CalculateSupremumDistance(((DataTable)dgvData.DataSource).Rows[row1], ((DataTable)dgvData.DataSource).Rows[row2]);
+                }
+
+                if (cbDistanceType.SelectedIndex == -1)
+                {
+                    lblReset.Text = "Please select the distance type first";
+                }
+                else
+                {
+                    if (res != 0)
+                        lblCalculate.Text += res.ToString("#.###");
+                    else lblCalculate.Text += res.ToString();
+                }
             }
-            else
-            {
-                if (!cbDistanceType.Enabled) cbDistanceType.Enabled = true;
-            }
+        }
+        private void cbDistanceType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbDistanceType.SelectedIndex != -1) lblReset.Text = "Click the first column of a row to select it";
+            CalculateManualSelection();
         }
     }
 }
