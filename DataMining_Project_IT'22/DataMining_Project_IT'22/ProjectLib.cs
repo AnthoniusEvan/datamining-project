@@ -146,8 +146,14 @@ namespace DataMining_Project_IT_22
             return CalculateDistance(p1, p2, 2);
         }
 
-        public static void ClusterData()
+        public static void ClusterData(DataTable table, int k)
         {
+            Random rnd = new Random();
+            List<double[]> centroids = new List<double[]>();
+            double[] p = new double[table.Columns.Count];
+            for (int i = 0; i < k; i++) {
+                centroids.Add(p);
+            }
 
         }
     }

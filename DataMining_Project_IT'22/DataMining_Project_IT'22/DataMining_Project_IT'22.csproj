@@ -74,11 +74,11 @@
     <Compile Include="ProjectLib.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proxy Matrix.cs">
+    <Compile Include="Proximity Matrix.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Proxy Matrix.Designer.cs">
-      <DependentUpon>Proxy Matrix.cs</DependentUpon>
+    <Compile Include="Proximity Matrix.Designer.cs">
+      <DependentUpon>Proximity Matrix.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Cluster.resx">
       <DependentUpon>Cluster.cs</DependentUpon>
@@ -101,8 +101,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Proxy Matrix.resx">
-      <DependentUpon>Proxy Matrix.cs</DependentUpon>
+    <EmbeddedResource Include="Proximity Matrix.resx">
+      <DependentUpon>Proximity Matrix.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

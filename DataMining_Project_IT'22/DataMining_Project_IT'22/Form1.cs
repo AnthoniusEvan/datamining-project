@@ -59,13 +59,13 @@ namespace DataMining_Project_IT_22
             {
                 if (dgvData.DataSource != null)
                 {
-                    Dictionary<string, double> res = ProjectLib.GetGini((DataTable)dgvData.DataSource);
+                    Dictionary<string, double> res = ProjectLib.GetGini((DataTable)dgvData.DataSource, 0);
                     label1.Text = "";
                     foreach (KeyValuePair<string, double> kvp in res)
                         label1.Text += String.Format("Name: {0}, GINI: {1};", kvp.Key, kvp.Value);
                     string name;
                     double gain;
-                    double value = ProjectLib.CalculateBestSplit((DataTable)dgvData.DataSource, out name, out gain);
+                    double value = ProjectLib.CalculateBestSplit((DataTable)dgvData.DataSource, 0, out name, out gain);
                     lblBestSplit.Text = String.Format("The best attribut to split:\nName: {0}, GINI: {1}, GAIN: {2}", name, value, gain);
                 }
             }

@@ -1,0 +1,18 @@
+Attribute 1:
+Name: Customer Id
+GINI: 0
+
+Attribute 2:
+Name: Gender
+GINI: 0,48
+
+Attribute 3:
+Name: Car Type
+GINI: 0,1625
+
+Attribute 4:
+Name: Shirt Size
+GINI: 0,491428571428571
+
+
+The best attribute to split is by Car Type with GINI of 0,1625 and GAIN 0,3375
