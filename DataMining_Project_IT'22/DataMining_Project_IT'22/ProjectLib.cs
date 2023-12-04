@@ -132,7 +132,8 @@ namespace DataMining_Project_IT_22
             double res = 0;
             for (int i = 1; i < p1.ItemArray.Count(); i++)  // assume the name of the record is on the 0-th index
             {
-                res += Math.Pow(Math.Abs(Convert.ToDouble(p1[i]) - Convert.ToDouble(p2[i])), type);
+                if (double.TryParse(p1[i].ToString(),out double d))
+                    res += Math.Pow(Math.Abs(Convert.ToDouble(p1[i]) - Convert.ToDouble(p2[i])), type);
             }
             res = Math.Pow(res, (double)(1 / (double)type));
             return res;
@@ -150,7 +151,8 @@ namespace DataMining_Project_IT_22
             List<double> values = new List<double>();
             for (int i = 1; i < p1.ItemArray.Count(); i++)
             {
-                values.Add(Math.Abs(Convert.ToDouble(p1[i]) - Convert.ToDouble(p2[i])));
+                if (double.TryParse(p1[i].ToString(), out double d))
+                    values.Add(Math.Abs(Convert.ToDouble(p1[i]) - Convert.ToDouble(p2[i])));
             }
             double res = values[0];
             foreach(double v in values)
@@ -197,6 +199,20 @@ namespace DataMining_Project_IT_22
                 {
                     double[] d = new double[centroids[0].Length];
                     newCentroids.Add(d);
+                }
+
+                for (int i = 0; i < newCentroids.Count; i++)
+                {
+                    for (int j = 0; j < newCentroids[i].Count(); j++)
+                    {
+                        double res = 0;
+                        foreach (DataRow row in members[i])
+                        {
+                            res += Convert.ToDouble(row[j]);
+                        }
+                        res = (double)(res / (double)members[i].Count);
+                        newCentroids[i][j] = res;
+                    }
                 }
 
             }

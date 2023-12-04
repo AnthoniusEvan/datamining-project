@@ -59,14 +59,20 @@ namespace DataMining_Project_IT_22
                 dt.Columns.Add(" ");
                 for (int i = 0; i < dgvData.Rows.Count - 1; i++)
                 {
-                    dt.Columns.Add(dgvData.Rows[i].Cells[cbRecordName.SelectedIndex].Value.ToString());
+                    if (dt.Columns.Contains(dgvData.Rows[i].Cells[cbRecordName.SelectedIndex].Value.ToString()))
+                        dt.Columns.Add(dgvData.Rows[i].Cells[cbRecordName.SelectedIndex].Value.ToString()+i);
+                    else
+                        dt.Columns.Add(dgvData.Rows[i].Cells[cbRecordName.SelectedIndex].Value.ToString());
                 }
                 for (int i = 0; i < dgvData.Rows.Count - 1; i++)
                 {
                     DataRow rowA = ((DataTable)dgvData.DataSource).Rows[i];
 
                     DataRow row = dt.NewRow();
-                    row[0] = dgvData.Rows[i].Cells[cbRecordName.SelectedIndex].Value.ToString();
+                    if (i>0 && dgvData.Rows[i-1].Cells[cbRecordName.SelectedIndex].Value.ToString() == dgvData.Rows[i].Cells[cbRecordName.SelectedIndex].Value.ToString())
+                        row[0] = dgvData.Rows[i].Cells[cbRecordName.SelectedIndex].Value.ToString()+i;
+                    else
+                        row[0] = dgvData.Rows[i].Cells[cbRecordName.SelectedIndex].Value.ToString();
 
                     for (int j = 0; j < dgvData.Rows.Count - 1; j++)
                     {
@@ -134,11 +140,27 @@ namespace DataMining_Project_IT_22
             string createText = "";
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Title = "Export to File";
-            sfd.DefaultExt = "txt";
-            sfd.Filter = "txt files (*.txt)|*.txt|out files (*.out)|*.out";
+            sfd.DefaultExt = "csv";
+            sfd.Filter = "csv files (*.csv)|*.csv|txt files (*.txt)|*.txt";
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
+                for(int i = 0; i < dgvResult.Columns.Count; i++)
+                {
+                    createText += dgvResult.Columns[i].HeaderText + ";";
+                }
+                createText = createText.TrimEnd(';');
+                createText += "\n";
+                foreach(DataRow row in ((DataTable)dgvResult.DataSource).Rows)
+                {
+                    for(int i = 0; i < row.ItemArray.Count(); i++)
+                    {
+                        createText += row[i] + ";";
+                    }
+                    createText = createText.TrimEnd(';');
+                    createText += "\n";
+                }
+
                 File.WriteAllText(sfd.FileName, createText);
             }
         }
