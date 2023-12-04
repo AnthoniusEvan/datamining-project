@@ -130,7 +130,7 @@ namespace DataMining_Project_IT_22
         private static double CalculateDistance(DataRow p1, DataRow p2, int type)
         {
             double res = 0;
-            for (int i = 1; i < p1.ItemArray.Count(); i++)
+            for (int i = 1; i < p1.ItemArray.Count(); i++)  // assume the name of the record is on the 0-th index
             {
                 res += Math.Pow(Math.Abs(Convert.ToDouble(p1[i]) - Convert.ToDouble(p2[i])), type);
             }
@@ -193,7 +193,11 @@ namespace DataMining_Project_IT_22
                 {
                     centroids = newCentroids;
                 }
-               
+                for (int i = 0; i < centroids.Count; i++)
+                {
+                    double[] d = new double[centroids[0].Length];
+                    newCentroids.Add(d);
+                }
 
             }
         }

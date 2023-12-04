@@ -61,6 +61,7 @@ namespace DataMining_Project_IT_22
             // 
             // cbClass
             // 
+            this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbClass.FormattingEnabled = true;
             this.cbClass.Location = new System.Drawing.Point(80, 19);
             this.cbClass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

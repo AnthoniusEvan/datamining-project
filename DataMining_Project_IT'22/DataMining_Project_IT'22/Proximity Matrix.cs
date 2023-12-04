@@ -33,7 +33,13 @@ namespace DataMining_Project_IT_22
                 if (lines[0].Contains(";"))
                     dgvData.DataSource = ProjectLib.NewDataTable(path, ";", true);
                 else dgvData.DataSource = ProjectLib.NewDataTable(path, ",", true);
-
+                
+                cbRecordName.Items.Clear();
+                for (int i = 0; i < dgvData.Columns.Count; i++)
+                {
+                    cbRecordName.Items.Add(dgvData.Columns[i].Name);
+                }
+                cbRecordName.SelectedIndex = 0;
                 pnlMenu.Enabled = true;
             }
         }
@@ -45,45 +51,52 @@ namespace DataMining_Project_IT_22
             dgvData.ColumnHeadersDefaultCellStyle.Font = new Font("Montserrat", 8, FontStyle.Bold);
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            if (lblResult.Text != "")
-            {
-                string[] texts = lblResult.Text.Split(';');
-                string createText = "";
-                foreach (string text in texts)
-                {
-                    createText += text + "\n";
-                }
-                createText += lblResult.Text;
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Title = "Export to File";
-                sfd.DefaultExt = "txt";
-                sfd.Filter = "txt files (*.txt)|*.txt|out files (*.out)|*.out";
-
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    File.WriteAllText(sfd.FileName, createText);
-                }
-            }
-        }
-
         private void btnCalc_Click(object sender, EventArgs e)
         {
-            try
+            if (dgvData.DataSource != null)
             {
-                if (dgvData.DataSource != null)
+                DataTable dt = new DataTable();
+                dt.Columns.Add(" ");
+                for (int i = 0; i < dgvData.Rows.Count - 1; i++)
                 {
-                    if (cbDistanceType.SelectedIndex == 1)
-                    {
-
-                    }
-                    lblResult.BackColor = Color.LightSteelBlue;
+                    dt.Columns.Add(dgvData.Rows[i].Cells[cbRecordName.SelectedIndex].Value.ToString());
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                for (int i = 0; i < dgvData.Rows.Count - 1; i++)
+                {
+                    DataRow rowA = ((DataTable)dgvData.DataSource).Rows[i];
+
+                    DataRow row = dt.NewRow();
+                    row[0] = dgvData.Rows[i].Cells[cbRecordName.SelectedIndex].Value.ToString();
+
+                    for (int j = 0; j < dgvData.Rows.Count - 1; j++)
+                    {
+                        DataRow rowB = ((DataTable)dgvData.DataSource).Rows[j];
+                        if (cbDistanceType.SelectedIndex == 0)
+                            row[j + 1] = Math.Round(ProjectLib.CalculateCityBlockDistance(rowA, rowB),3);
+                        else if (cbDistanceType.SelectedIndex == 1)
+                            row[j + 1] = Math.Round(ProjectLib.CalculateEuclideanDistance(rowA, rowB),3);
+                        else if (cbDistanceType.SelectedIndex == 2)
+                            row[j + 1] = Math.Round(ProjectLib.CalculateSupremumDistance(rowA, rowB),3);
+                        else
+                        {
+                            MessageBox.Show("Please select the distance type first!", "Information");
+                            return;
+                        }
+
+                        if (rdbSim.Checked)
+                        {
+                            if (Convert.ToDouble(row[j + 1]) == 0)
+                                row[j + 1] = 1;
+                            else
+                                row[j + 1] = Convert.ToDouble(row[j + 1]) * -1;
+                        }
+                    }
+                    dt.Rows.Add(row);
+                }
+                dgvResult.DataSource = dt;
+                btnView.Visible = true;
+                pnlResult.BringToFront();
+
             }
         }
         string selected1="", selected2 = "";
@@ -115,6 +128,31 @@ namespace DataMining_Project_IT_22
                 selected2 = "";
             }
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            string createText = "";
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Export to File";
+            sfd.DefaultExt = "txt";
+            sfd.Filter = "txt files (*.txt)|*.txt|out files (*.out)|*.out";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(sfd.FileName, createText);
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            pnlData.BringToFront();
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            pnlResult.BringToFront();
+        }
+
         private void CalculateManualSelection()
         {
             lblCalculate.Text = string.Format("D({0}, {1}) = ", selected1, selected2);
