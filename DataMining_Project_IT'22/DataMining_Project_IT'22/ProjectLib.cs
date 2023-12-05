@@ -204,12 +204,12 @@ namespace DataMining_Project_IT_22
             {
                 members[index].Add(table.Rows[shuffle[s]]);
 
-                if (index >= members.Count-1) index = 0;
-                else index++;
+                if (index < members.Count-1) index++;
+                else index = 0;
             }
 
 
-            CalculateCentroidCoordinates(members, out centroids);
+            CalculateCentroidCoordinates(members, out centroids, table.Columns.Count);
 
             List<double[]> newCentroids = new List<double[]>();
             while (true)
@@ -234,6 +234,7 @@ namespace DataMining_Project_IT_22
                     }
                     if (isFinished) break;
                     centroids = newCentroids;
+                    
                 }
 
                 /*for (int i = 0; i < centroids.Count; i++)
@@ -271,34 +272,50 @@ namespace DataMining_Project_IT_22
                     for (int i = 0; i < newCentroids.Count; i++)
                     {
                         double d = 0;
-                        for(int j = 0; j < newCentroids[i].Count(); j++)
+                        for(int j = 0; j < table.Columns.Count; j++)
                         {
                             d += Math.Pow(Convert.ToDouble(row[j]) - newCentroids[i][j], 2);
                         }
-                        d = Math.Sqrt(d);
-                        min[i] = d;
+                        min[i] = Math.Sqrt(d);
                     }
+                    // error right here if you cluster button with a high k number
                     members[Array.FindIndex(min, x => x == min.Min())].Add(row);
                 }
-
-                CalculateCentroidCoordinates(members, out newCentroids);
+                List<int> removeIndex = new List<int>();
+                bool has0member = false;
+                for(int i=0;i<members.Count;i++)
+                {
+                    if (members[i].Count == 0)
+                    {
+                        has0member = true;
+                        removeIndex.Add(i);
+                    }
+                }
+                if (has0member)
+                {
+                    foreach (int i in removeIndex)
+                    {
+                        members.RemoveAt(i);
+                    }
+                }
+                    CalculateCentroidCoordinates(members, out newCentroids, table.Columns.Count);
             }
             return centroids;
         }
-        private static void CalculateCentroidCoordinates(List<List<DataRow>> members, out List<double[]> centroids)
+        private static void CalculateCentroidCoordinates(List<List<DataRow>> members, out List<double[]> centroids, int colsCount)
         {
             double[] p;
 
             centroids = new List<double[]>();
             for (int i = 0; i < members.Count; i++)
             {
-                p = new double[members[0][0].ItemArray.Count()];
+                p = new double[colsCount];
                 centroids.Add(p);
             }
 
             for (int i = 0; i < members.Count; i++)
             {
-                for (int j = 0; j < members[i][0].ItemArray.Count(); j++)
+                for (int j = 0; j < colsCount; j++)
                 {
                     double res = 0;
                     for (int l = 0; l < members[i].Count; l++)
