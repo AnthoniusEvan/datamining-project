@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
 namespace DataMining_Project_IT_22
 {
-    class ProjectLib
+    static class ProjectLib
     {
         public static DataTable NewDataTable(string fileName, string delimiters, bool firstRowContainsFieldNames = true)
         {
@@ -162,7 +162,20 @@ namespace DataMining_Project_IT_22
             return res;
         }
 
-        public static void ClusterData(DataTable table, int k)
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            Random rnd = new Random();
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rnd.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
+        public static List<double[]> ClusterData(DataTable table, int k)
         {
             Random rnd = new Random();
             // store the centroid coordinates
@@ -172,30 +185,58 @@ namespace DataMining_Project_IT_22
             List<List<DataRow>> members = new List<List<DataRow>>();
 
             // only temp var to be added to the list
-            List<DataRow> dr = new List<DataRow>();
-            double[] p = new double[table.Columns.Count];
+            List<DataRow> dr;
 
             for (int i = 0; i < k; i++)
             {
-                centroids.Add(p);
+                dr = new List<DataRow>();
                 members.Add(dr);
             }
 
-            foreach (DataRow row in table.Rows)
+            List<int> shuffle = new List<int>();
+            for (int i = 0; i < table.Rows.Count; i++)
             {
-                members[rnd.Next(0, k)].Add(row);
+                shuffle.Add(i);
             }
+            shuffle.Shuffle();
+            int index = 0;
+            for (int s=0;s<shuffle.Count;s++)
+            {
+                members[index].Add(table.Rows[shuffle[s]]);
+
+                if (index >= members.Count-1) index = 0;
+                else index++;
+            }
+
 
             CalculateCentroidCoordinates(members, out centroids);
 
             List<double[]> newCentroids = new List<double[]>();
-            while (centroids != newCentroids)
+            while (true)
             {
-                if (newCentroids.Count > 0)
+                if (newCentroids.Count == 0)
                 {
+                    newCentroids = centroids;
+                }
+                else
+                {
+                    bool isFinished = true;
+                    for(int i=0;i<newCentroids.Count;i++)
+                    {
+                        for(int j =0;j<newCentroids[i].Count();j++)
+                        {
+                            if (centroids[i][j] != newCentroids[i][j])
+                            {
+                                isFinished = false;
+                                break;
+                            }
+                        }
+                    }
+                    if (isFinished) break;
                     centroids = newCentroids;
                 }
-                for (int i = 0; i < centroids.Count; i++)
+
+                /*for (int i = 0; i < centroids.Count; i++)
                 {
                     double[] d = new double[centroids[0].Length];
                     newCentroids.Add(d);
@@ -213,17 +254,45 @@ namespace DataMining_Project_IT_22
                         res = (double)(res / (double)members[i].Count);
                         newCentroids[i][j] = res;
                     }
+                }*/
+
+                // Add new members to cluster
+                members.Clear();
+                for (int i = 0; i < k; i++)
+                {
+                    dr = new List<DataRow>();
+                    members.Add(dr);
                 }
 
+                // Calculate distance from each point to each cluster to find the new members contained in each cluster
+                foreach (DataRow row in table.Rows)
+                {
+                    double[] min = new double[newCentroids.Count];
+                    for (int i = 0; i < newCentroids.Count; i++)
+                    {
+                        double d = 0;
+                        for(int j = 0; j < newCentroids[i].Count(); j++)
+                        {
+                            d += Math.Pow(Convert.ToDouble(row[j]) - newCentroids[i][j], 2);
+                        }
+                        d = Math.Sqrt(d);
+                        min[i] = d;
+                    }
+                    members[Array.FindIndex(min, x => x == min.Min())].Add(row);
+                }
+
+                CalculateCentroidCoordinates(members, out newCentroids);
             }
+            return centroids;
         }
         private static void CalculateCentroidCoordinates(List<List<DataRow>> members, out List<double[]> centroids)
         {
-            double[] p = new double[members[0][0].ItemArray.Count()];
+            double[] p;
 
             centroids = new List<double[]>();
             for (int i = 0; i < members.Count; i++)
             {
+                p = new double[members[0][0].ItemArray.Count()];
                 centroids.Add(p);
             }
 
