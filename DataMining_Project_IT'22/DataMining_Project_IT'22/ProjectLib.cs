@@ -175,14 +175,14 @@ namespace DataMining_Project_IT_22
                 list[n] = value;
             }
         }
-        public static List<double[]> ClusterData(DataTable table, int k)
+        public static List<double[]> ClusterData(DataTable table, int k, out List<List<DataRow>> members)
         {
             Random rnd = new Random();
             // store the centroid coordinates
             List<double[]> centroids = new List<double[]>();
 
             // the set containing all the record within a cluster group
-            List<List<DataRow>> members = new List<List<DataRow>>();
+            members = new List<List<DataRow>>();
 
             // only temp var to be added to the list
             List<DataRow> dr;
@@ -279,6 +279,7 @@ namespace DataMining_Project_IT_22
                         min[i] = Math.Sqrt(d);
                     }
                     // error right here if you cluster button with a high k number
+
                     members[Array.FindIndex(min, x => x == min.Min())].Add(row);
                 }
                 List<int> removeIndex = new List<int>();

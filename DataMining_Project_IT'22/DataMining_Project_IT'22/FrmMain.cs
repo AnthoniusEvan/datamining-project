@@ -52,6 +52,8 @@ namespace DataMining_Project_IT_22
         private void FrmMain_Load(object sender, EventArgs e)
         {
             btnGini.BackColor = Color.FromArgb(11, 33, 97);
+            Width = 970;
+            Height = 441;
         }
 
         private void UnselectControl()

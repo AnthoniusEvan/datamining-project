@@ -36,14 +36,20 @@ namespace DataMining_Project_IT_22
             this.lblInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCluster = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnExport = new System.Windows.Forms.Button();
+            this.pnlData = new System.Windows.Forms.Panel();
+            this.btnViewResult = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.btnImport = new System.Windows.Forms.Button();
+            this.pnlResult = new System.Windows.Forms.Panel();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.dgvResult = new System.Windows.Forms.DataGridView();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudK)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
+            this.pnlResult.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -132,28 +138,29 @@ namespace DataMining_Project_IT_22
             this.btnCluster.UseVisualStyleBackColor = true;
             this.btnCluster.Click += new System.EventHandler(this.btnCluster_Click);
             // 
-            // panel1
+            // pnlData
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.btnExport);
-            this.panel1.Controls.Add(this.dgvData);
-            this.panel1.Controls.Add(this.btnImport);
-            this.panel1.Location = new System.Drawing.Point(304, 14);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(880, 554);
-            this.panel1.TabIndex = 22;
+            this.pnlData.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlData.Controls.Add(this.btnViewResult);
+            this.pnlData.Controls.Add(this.dgvData);
+            this.pnlData.Controls.Add(this.btnImport);
+            this.pnlData.Location = new System.Drawing.Point(304, 14);
+            this.pnlData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlData.Name = "pnlData";
+            this.pnlData.Size = new System.Drawing.Size(880, 554);
+            this.pnlData.TabIndex = 22;
             // 
-            // btnExport
+            // btnViewResult
             // 
-            this.btnExport.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Location = new System.Drawing.Point(740, 12);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(125, 49);
-            this.btnExport.TabIndex = 15;
-            this.btnExport.Text = "Export";
-            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnViewResult.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewResult.Location = new System.Drawing.Point(669, 12);
+            this.btnViewResult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnViewResult.Name = "btnViewResult";
+            this.btnViewResult.Size = new System.Drawing.Size(196, 49);
+            this.btnViewResult.TabIndex = 15;
+            this.btnViewResult.Text = "View Result";
+            this.btnViewResult.UseVisualStyleBackColor = true;
+            this.btnViewResult.Click += new System.EventHandler(this.btnViewResult_Click);
             // 
             // dgvData
             // 
@@ -179,19 +186,73 @@ namespace DataMining_Project_IT_22
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // pnlResult
+            // 
+            this.pnlResult.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlResult.Controls.Add(this.btnExport);
+            this.pnlResult.Controls.Add(this.dgvResult);
+            this.pnlResult.Controls.Add(this.btnBack);
+            this.pnlResult.Location = new System.Drawing.Point(304, 14);
+            this.pnlResult.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlResult.Name = "pnlResult";
+            this.pnlResult.Size = new System.Drawing.Size(880, 554);
+            this.pnlResult.TabIndex = 24;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Location = new System.Drawing.Point(740, 12);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(125, 49);
+            this.btnExport.TabIndex = 15;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // dgvResult
+            // 
+            this.dgvResult.AllowUserToAddRows = false;
+            this.dgvResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResult.Location = new System.Drawing.Point(11, 75);
+            this.dgvResult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvResult.Name = "dgvResult";
+            this.dgvResult.ReadOnly = true;
+            this.dgvResult.RowHeadersVisible = false;
+            this.dgvResult.RowHeadersWidth = 62;
+            this.dgvResult.RowTemplate.Height = 28;
+            this.dgvResult.Size = new System.Drawing.Size(854, 458);
+            this.dgvResult.TabIndex = 14;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(11, 12);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(267, 49);
+            this.btnBack.TabIndex = 13;
+            this.btnBack.Text = "View Original Data";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Cluster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlMenu);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlData);
+            this.Controls.Add(this.pnlResult);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Cluster";
             this.Size = new System.Drawing.Size(1199, 581);
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudK)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.pnlData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
+            this.pnlResult.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -201,13 +262,17 @@ namespace DataMining_Project_IT_22
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCluster;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Panel pnlData;
+        private System.Windows.Forms.Button btnViewResult;
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.NumericUpDown nudK;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Label lblWarning;
         private System.Windows.Forms.Button btnResetTable;
+        private System.Windows.Forms.Panel pnlResult;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.DataGridView dgvResult;
+        private System.Windows.Forms.Button btnBack;
     }
 }
