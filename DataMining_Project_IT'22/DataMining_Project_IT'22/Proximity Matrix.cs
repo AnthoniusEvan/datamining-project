@@ -175,6 +175,11 @@ namespace DataMining_Project_IT_22
             pnlResult.BringToFront();
         }
 
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void CalculateManualSelection()
         {
             lblCalculate.Text = string.Format("D({0}, {1}) = ", selected1, selected2);
