@@ -175,11 +175,11 @@ namespace DataMining_Project_IT_22
                 list[n] = value;
             }
         }
-        public static List<double[]> ClusterData(DataTable table, int k, out List<List<DataRow>> members)
+        public static List<List<double>> ClusterData(DataTable table, int k, out List<List<DataRow>> members)
         {
             Random rnd = new Random();
             // store the centroid coordinates
-            List<double[]> centroids = new List<double[]>();
+            List<List<double>> centroids = new List<List<double>>();
 
             // the set containing all the record within a cluster group
             members = new List<List<DataRow>>();
@@ -208,10 +208,9 @@ namespace DataMining_Project_IT_22
                 else index = 0;
             }
 
-
             CalculateCentroidCoordinates(members, out centroids, table.Columns.Count);
 
-            List<double[]> newCentroids = new List<double[]>();
+            List<List<double>> newCentroids = new List<List<double>>();
             while (true)
             {
                 if (newCentroids.Count == 0)
@@ -272,9 +271,14 @@ namespace DataMining_Project_IT_22
                     for (int i = 0; i < newCentroids.Count; i++)
                     {
                         double d = 0;
+                        int pointer = 0;
                         for(int j = 0; j < table.Columns.Count; j++)
                         {
-                            d += Math.Pow(Convert.ToDouble(row[j]) - newCentroids[i][j], 2);
+                            if (newCentroids[i].Count != 0 && double.TryParse(table.Rows[0][j].ToString(), out double test))
+                            {
+                                d += Math.Pow(Convert.ToDouble(row[j]) - newCentroids[i][pointer], 2);
+                                pointer++;
+                            }
                         }
                         min[i] = Math.Sqrt(d);
                     }
@@ -294,37 +298,43 @@ namespace DataMining_Project_IT_22
                 }
                 if (has0member)
                 {
+                    int removedItems = 0;
                     foreach (int i in removeIndex)
                     {
-                        members.RemoveAt(i);
+                        if (removedItems == 0)
+                            members.RemoveAt(i);
+                        else members.RemoveAt(i-removedItems);
+                        removedItems++;
                     }
                 }
                     CalculateCentroidCoordinates(members, out newCentroids, table.Columns.Count);
             }
             return centroids;
         }
-        private static void CalculateCentroidCoordinates(List<List<DataRow>> members, out List<double[]> centroids, int colsCount)
+        private static void CalculateCentroidCoordinates(List<List<DataRow>> members, out List<List<double>> centroids, int colsCount)
         {
-            double[] p;
+            List<double> p = new List<double>();
 
-            centroids = new List<double[]>();
+            centroids = new List<List<double>>();
             for (int i = 0; i < members.Count; i++)
             {
-                p = new double[colsCount];
+                p = new List<double>();
                 centroids.Add(p);
             }
-
+            //bool isDouble = true;
             for (int i = 0; i < members.Count; i++)
             {
                 for (int j = 0; j < colsCount; j++)
                 {
+                    if (members[i].Count == 0 || members[i][0].ItemArray.Count()==0 || !double.TryParse(members[i][0][j].ToString(), out double test))
+                        continue;
                     double res = 0;
                     for (int l = 0; l < members[i].Count; l++)
                     {
                         res += Convert.ToDouble(members[i][l][j]);
                     }
                     res = (double)(res / (double)members[i].Count);
-                    centroids[i][j] = res;
+                    centroids[i].Add(res);
                 }
             }
         }

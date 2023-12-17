@@ -38,74 +38,68 @@ namespace DataMining_Project_IT_22
                 nudK.Maximum = dgvData.Rows.Count-1;
             }
         }
-
+        List<List<double>> res;
         private void btnCluster_Click(object sender, EventArgs e)
         {
             DataTable dt = ((DataTable)dgvData.DataSource).Copy();
             List<List<DataRow>> members;
-            try
+            List<int> removedIndex = new List<int>();
+            for (int i = 0; i < dgvData.Columns.Count; i++)
             {
-                
-                List<int> removedIndex = new List<int>();
-                for (int i = 0; i < dgvData.Columns.Count; i++)
-                {
-                    if (!dgvData.Columns[i].Visible) removedIndex.Add(i);
-                    else if (!double.TryParse((string)dgvData.Rows[0].Cells[i].Value, out double s))
-                    {
-                        removedIndex.Add(i);
-                    }
-                }
-                foreach (int i in removedIndex)
-                {
-                    dt.Columns.RemoveAt(i);
-                }
-                List<double[]> res = ProjectLib.ClusterData(dt, (int)nudK.Value, out members);
-                if (res.Count != (int)nudK.Value)
-                {
-                    btnCluster_Click(sender, e);
-                    return;
-                }
-                string text = "";
-                NumberFormatInfo nfi = new NumberFormatInfo();
-                nfi.NumberDecimalSeparator = ".";
-                for (int i = 0; i < res.Count; i++)
-                {
-                    text += string.Format("C{0} = (", i);
-                    foreach (double r in res[i])
-                    {
-                        text += Math.Round(r, 2).ToString(nfi) + ", ";
-                    }
-                    text = text.TrimEnd(new char[] { ',', ' ' });
-                    text += ")\n";
-                }
-
-                lblInfo.Text = text;
-                dgvResult.Columns.Clear();
-                dgvResult.Columns.Add("class", "Class");
-                foreach (DataColumn c in dt.Columns)
-                {
-                    dgvResult.Columns.Add(c.ColumnName, c.ColumnName);
-                }
-                int rowIndex = 0;
-                for(int i = 0; i < members.Count; i++)
-                {
-                    for(int j = 0; j < members[i].Count; j++)
-                    {
-                        dgvResult.Rows.Add();
-                        dgvResult.Rows[rowIndex].Cells[0].Value = "C" + i;
-                        for (int k=0; k<members[i][j].ItemArray.Count(); k++)
-                        {
-                            dgvResult.Rows[rowIndex].Cells[k+1].Value = members[i][j][k];
-                        }
-                        rowIndex++;
-                    }
-                }
-                pnlResult.BringToFront();
+                if (!dgvData.Columns[i].Visible)
+                    removedIndex.Add(i);
             }
-            catch(Exception ex)
+            foreach (int i in removedIndex)
             {
-                //btnCluster_Click(sender, e);
+                dt.Columns.RemoveAt(i);
             }
+            res = ProjectLib.ClusterData(dt, (int)nudK.Value, out members);
+            if (res.Count != (int)nudK.Value)
+            {
+                btnCluster_Click(sender, e);
+                return;
+            }
+            string text = "";
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+            for (int i = 0; i < res.Count; i++)
+            {
+                text += string.Format("C{0} = (", i);
+                foreach (double r in res[i])
+                {
+                    text += Math.Round(r, 2).ToString(nfi) + ", ";
+                }
+                text = text.TrimEnd(new char[] { ',', ' ' });
+                text += ")\n";
+            }
+            lblInfo.Text = text;
+            while (lblInfo.Height < System.Windows.Forms.TextRenderer.MeasureText(lblInfo.Text,
+     new Font(lblInfo.Font.FontFamily, lblInfo.Font.Size, lblInfo.Font.Style)).Height)
+            {
+                lblInfo.Font = new Font(lblInfo.Font.FontFamily, lblInfo.Font.Size - 0.5f, lblInfo.Font.Style);
+            }
+            dgvResult.Columns.Clear();
+            dgvResult.Columns.Add("class", "Class");
+            foreach (DataColumn c in dt.Columns)
+            {
+                dgvResult.Columns.Add(c.ColumnName, c.ColumnName);
+            }
+            int rowIndex = 0;
+            for (int i = 0; i < members.Count; i++)
+            {
+                for (int j = 0; j < members[i].Count; j++)
+                {
+                    dgvResult.Rows.Add();
+                    dgvResult.Rows[rowIndex].Cells[0].Value = "C" + i;
+                    for (int k = 0; k < members[i][j].ItemArray.Count(); k++)
+                    {
+                        dgvResult.Rows[rowIndex].Cells[k + 1].Value = members[i][j][k];
+                    }
+                    rowIndex++;
+                }
+            }
+            lblInfo.BackColor = Color.LightSteelBlue;
+            pnlResult.BringToFront();
         }
 
         private void btnResetTable_Click(object sender, EventArgs e)
@@ -131,7 +125,6 @@ namespace DataMining_Project_IT_22
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-
             string createText = "";
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Title = "Export to File";
@@ -155,11 +148,30 @@ namespace DataMining_Project_IT_22
                     createText = createText.TrimEnd(';');
                     createText += "\n";
                 }
+                createText = createText.TrimEnd('\n');
 
+                int curIndex = 0;
+                for (int i = 0; i < res.Count; i++){
+                    string text = "";
+                    NumberFormatInfo nfi = new NumberFormatInfo();
+                    nfi.NumberDecimalSeparator = ".";
+                    text += string.Format("C{0} = (", i);
+                    foreach (double r in res[i])
+                    {
+                        text += Math.Round(r, 2).ToString(nfi) + ", ";
+                    }
+                    text = text.TrimEnd(new char[] { ',', ' ' });
+                    text += ")";
+
+                    createText = createText.Substring(0, createText.IndexOf('\n', curIndex)) + "; ; ;"+ text + createText.Substring(createText.IndexOf('\n', curIndex), createText.Length - createText.IndexOf('\n', curIndex));
+
+                    curIndex = createText.IndexOf('\n', curIndex) + 1;
+                }
+ 
                 File.WriteAllText(sfd.FileName, createText);
             }
-        }
 
+        }
         private void btnViewResult_Click(object sender, EventArgs e)
         {
             pnlResult.BringToFront();
