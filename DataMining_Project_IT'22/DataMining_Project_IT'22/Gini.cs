@@ -100,5 +100,13 @@ namespace DataMining_Project_IT_22
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Gini_Load(object sender, EventArgs e)
+        {
+            dgvData.EnableHeadersVisualStyles = false;
+            dgvData.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(60, 77, 129);
+            dgvData.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvData.ColumnHeadersDefaultCellStyle.Font = new Font("Montserrat", 8, FontStyle.Bold);
+        }
     }
 }

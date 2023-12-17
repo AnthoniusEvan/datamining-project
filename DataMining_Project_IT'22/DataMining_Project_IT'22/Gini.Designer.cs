@@ -53,28 +53,26 @@ namespace DataMining_Project_IT_22
             this.pnlMenu.Controls.Add(this.btnCalc);
             this.pnlMenu.Controls.Add(this.lblResult);
             this.pnlMenu.Enabled = false;
-            this.pnlMenu.Location = new System.Drawing.Point(10, 14);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlMenu.Location = new System.Drawing.Point(9, 11);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(281, 554);
+            this.pnlMenu.Size = new System.Drawing.Size(250, 443);
             this.pnlMenu.TabIndex = 21;
             // 
             // cbClass
             // 
             this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbClass.FormattingEnabled = true;
-            this.cbClass.Location = new System.Drawing.Point(80, 19);
-            this.cbClass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbClass.Location = new System.Drawing.Point(71, 15);
             this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(185, 28);
+            this.cbClass.Size = new System.Drawing.Size(165, 24);
             this.cbClass.TabIndex = 18;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 21);
+            this.label2.Location = new System.Drawing.Point(12, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(251, 40);
+            this.label2.Size = new System.Drawing.Size(223, 32);
             this.label2.TabIndex = 17;
             this.label2.Text = "Class: ";
             // 
@@ -82,18 +80,18 @@ namespace DataMining_Project_IT_22
             // 
             this.lblInfo.BackColor = System.Drawing.Color.Transparent;
             this.lblInfo.Font = new System.Drawing.Font("Montserrat Medium", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(18, 156);
+            this.lblInfo.Location = new System.Drawing.Point(16, 125);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(247, 276);
+            this.lblInfo.Size = new System.Drawing.Size(220, 221);
             this.lblInfo.TabIndex = 12;
             // 
             // btnCalc
             // 
             this.btnCalc.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalc.Location = new System.Drawing.Point(18, 75);
+            this.btnCalc.Location = new System.Drawing.Point(16, 60);
             this.btnCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCalc.Name = "btnCalc";
-            this.btnCalc.Size = new System.Drawing.Size(247, 61);
+            this.btnCalc.Size = new System.Drawing.Size(220, 49);
             this.btnCalc.TabIndex = 15;
             this.btnCalc.Text = "Calculate Best Split";
             this.btnCalc.UseVisualStyleBackColor = true;
@@ -103,9 +101,9 @@ namespace DataMining_Project_IT_22
             // 
             this.lblResult.BackColor = System.Drawing.Color.Transparent;
             this.lblResult.Font = new System.Drawing.Font("Montserrat", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.Location = new System.Drawing.Point(18, 450);
+            this.lblResult.Location = new System.Drawing.Point(16, 360);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(247, 83);
+            this.lblResult.Size = new System.Drawing.Size(220, 66);
             this.lblResult.TabIndex = 16;
             // 
             // panel1
@@ -114,19 +112,18 @@ namespace DataMining_Project_IT_22
             this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.dgvData);
             this.panel1.Controls.Add(this.btnImport);
-            this.panel1.Location = new System.Drawing.Point(298, 14);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Location = new System.Drawing.Point(265, 11);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(880, 554);
+            this.panel1.Size = new System.Drawing.Size(782, 443);
             this.panel1.TabIndex = 20;
             // 
             // btnExport
             // 
             this.btnExport.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Location = new System.Drawing.Point(740, 12);
+            this.btnExport.Location = new System.Drawing.Point(658, 10);
             this.btnExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(125, 49);
+            this.btnExport.Size = new System.Drawing.Size(111, 39);
             this.btnExport.TabIndex = 15;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -135,21 +132,21 @@ namespace DataMining_Project_IT_22
             // dgvData
             // 
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Location = new System.Drawing.Point(11, 75);
+            this.dgvData.Location = new System.Drawing.Point(10, 60);
             this.dgvData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvData.Name = "dgvData";
             this.dgvData.RowHeadersWidth = 62;
             this.dgvData.RowTemplate.Height = 28;
-            this.dgvData.Size = new System.Drawing.Size(854, 458);
+            this.dgvData.Size = new System.Drawing.Size(759, 366);
             this.dgvData.TabIndex = 14;
             // 
             // btnImport
             // 
             this.btnImport.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.Location = new System.Drawing.Point(11, 12);
+            this.btnImport.Location = new System.Drawing.Point(10, 10);
             this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(125, 49);
+            this.btnImport.Size = new System.Drawing.Size(111, 39);
             this.btnImport.TabIndex = 13;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -157,13 +154,13 @@ namespace DataMining_Project_IT_22
             // 
             // Gini
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Gini";
-            this.Size = new System.Drawing.Size(1199, 581);
+            this.Size = new System.Drawing.Size(1066, 465);
+            this.Load += new System.EventHandler(this.Gini_Load);
             this.pnlMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();

@@ -66,18 +66,17 @@ namespace DataMining_Project_IT_22
             this.pnlMenu.Controls.Add(this.gbProxMatrix);
             this.pnlMenu.Controls.Add(this.groupBox1);
             this.pnlMenu.Enabled = false;
-            this.pnlMenu.Location = new System.Drawing.Point(16, 14);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlMenu.Location = new System.Drawing.Point(14, 11);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(281, 554);
+            this.pnlMenu.Size = new System.Drawing.Size(250, 443);
             this.pnlMenu.TabIndex = 23;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(13, 20);
+            this.label2.Location = new System.Drawing.Point(12, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(218, 26);
+            this.label2.Size = new System.Drawing.Size(194, 21);
             this.label2.TabIndex = 30;
             this.label2.Text = "Distance Type:";
             // 
@@ -89,10 +88,9 @@ namespace DataMining_Project_IT_22
             "City Block",
             "Euclidean",
             "Supremum"});
-            this.cbDistanceType.Location = new System.Drawing.Point(18, 50);
-            this.cbDistanceType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbDistanceType.Location = new System.Drawing.Point(16, 40);
             this.cbDistanceType.Name = "cbDistanceType";
-            this.cbDistanceType.Size = new System.Drawing.Size(247, 28);
+            this.cbDistanceType.Size = new System.Drawing.Size(220, 24);
             this.cbDistanceType.TabIndex = 29;
             // 
             // gbProxMatrix
@@ -103,9 +101,11 @@ namespace DataMining_Project_IT_22
             this.gbProxMatrix.Controls.Add(this.cbRecordName);
             this.gbProxMatrix.Controls.Add(this.button1);
             this.gbProxMatrix.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold);
-            this.gbProxMatrix.Location = new System.Drawing.Point(18, 267);
+            this.gbProxMatrix.Location = new System.Drawing.Point(16, 214);
+            this.gbProxMatrix.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbProxMatrix.Name = "gbProxMatrix";
-            this.gbProxMatrix.Size = new System.Drawing.Size(247, 247);
+            this.gbProxMatrix.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbProxMatrix.Size = new System.Drawing.Size(220, 198);
             this.gbProxMatrix.TabIndex = 25;
             this.gbProxMatrix.TabStop = false;
             this.gbProxMatrix.Text = "Proximity Matrix";
@@ -115,9 +115,10 @@ namespace DataMining_Project_IT_22
             this.rdbDissim.AutoSize = true;
             this.rdbDissim.Checked = true;
             this.rdbDissim.Font = new System.Drawing.Font("Montserrat", 7F);
-            this.rdbDissim.Location = new System.Drawing.Point(16, 133);
+            this.rdbDissim.Location = new System.Drawing.Point(14, 106);
+            this.rdbDissim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbDissim.Name = "rdbDissim";
-            this.rdbDissim.Size = new System.Drawing.Size(123, 24);
+            this.rdbDissim.Size = new System.Drawing.Size(103, 20);
             this.rdbDissim.TabIndex = 27;
             this.rdbDissim.TabStop = true;
             this.rdbDissim.Text = "Dissimilarity";
@@ -127,9 +128,10 @@ namespace DataMining_Project_IT_22
             // 
             this.rdbSim.AutoSize = true;
             this.rdbSim.Font = new System.Drawing.Font("Montserrat", 7F);
-            this.rdbSim.Location = new System.Drawing.Point(16, 103);
+            this.rdbSim.Location = new System.Drawing.Point(14, 82);
+            this.rdbSim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbSim.Name = "rdbSim";
-            this.rdbSim.Size = new System.Drawing.Size(102, 24);
+            this.rdbSim.Size = new System.Drawing.Size(85, 20);
             this.rdbSim.TabIndex = 26;
             this.rdbSim.TabStop = true;
             this.rdbSim.Text = "Similarity";
@@ -138,9 +140,9 @@ namespace DataMining_Project_IT_22
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Montserrat", 7F);
-            this.label1.Location = new System.Drawing.Point(12, 32);
+            this.label1.Location = new System.Drawing.Point(11, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 21);
+            this.label1.Size = new System.Drawing.Size(204, 17);
             this.label1.TabIndex = 25;
             this.label1.Text = "Select column of record name";
             // 
@@ -153,19 +155,18 @@ namespace DataMining_Project_IT_22
             "City Block",
             "Euclidean",
             "Supremum"});
-            this.cbRecordName.Location = new System.Drawing.Point(16, 57);
-            this.cbRecordName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbRecordName.Location = new System.Drawing.Point(14, 46);
             this.cbRecordName.Name = "cbRecordName";
-            this.cbRecordName.Size = new System.Drawing.Size(214, 30);
+            this.cbRecordName.Size = new System.Drawing.Size(191, 26);
             this.cbRecordName.TabIndex = 25;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(16, 173);
+            this.button1.Location = new System.Drawing.Point(14, 138);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(214, 54);
+            this.button1.Size = new System.Drawing.Size(190, 43);
             this.button1.TabIndex = 15;
             this.button1.Text = "Calculate Distance";
             this.button1.UseVisualStyleBackColor = true;
@@ -176,9 +177,11 @@ namespace DataMining_Project_IT_22
             this.groupBox1.Controls.Add(this.lblReset);
             this.groupBox1.Controls.Add(this.lblCalculate);
             this.groupBox1.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(18, 99);
+            this.groupBox1.Location = new System.Drawing.Point(16, 79);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(247, 144);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(220, 115);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Calculate Distance";
@@ -186,9 +189,9 @@ namespace DataMining_Project_IT_22
             // lblReset
             // 
             this.lblReset.Font = new System.Drawing.Font("Montserrat", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReset.Location = new System.Drawing.Point(16, 81);
+            this.lblReset.Location = new System.Drawing.Point(14, 65);
             this.lblReset.Name = "lblReset";
-            this.lblReset.Size = new System.Drawing.Size(214, 57);
+            this.lblReset.Size = new System.Drawing.Size(190, 46);
             this.lblReset.TabIndex = 24;
             this.lblReset.Text = "Click the first column of a row to select it";
             this.lblReset.Click += new System.EventHandler(this.lblReset_Click);
@@ -196,9 +199,9 @@ namespace DataMining_Project_IT_22
             // lblCalculate
             // 
             this.lblCalculate.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCalculate.Location = new System.Drawing.Point(16, 34);
+            this.lblCalculate.Location = new System.Drawing.Point(14, 27);
             this.lblCalculate.Name = "lblCalculate";
-            this.lblCalculate.Size = new System.Drawing.Size(225, 40);
+            this.lblCalculate.Size = new System.Drawing.Size(200, 32);
             this.lblCalculate.TabIndex = 23;
             this.lblCalculate.Text = "D(_ , _) =";
             // 
@@ -208,19 +211,18 @@ namespace DataMining_Project_IT_22
             this.pnlData.Controls.Add(this.btnView);
             this.pnlData.Controls.Add(this.dgvData);
             this.pnlData.Controls.Add(this.btnImport);
-            this.pnlData.Location = new System.Drawing.Point(304, 14);
-            this.pnlData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlData.Location = new System.Drawing.Point(270, 11);
             this.pnlData.Name = "pnlData";
-            this.pnlData.Size = new System.Drawing.Size(880, 554);
+            this.pnlData.Size = new System.Drawing.Size(782, 443);
             this.pnlData.TabIndex = 22;
             // 
             // btnView
             // 
             this.btnView.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(575, 12);
+            this.btnView.Location = new System.Drawing.Point(511, 10);
             this.btnView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(290, 49);
+            this.btnView.Size = new System.Drawing.Size(258, 39);
             this.btnView.TabIndex = 15;
             this.btnView.Text = "View Proximity Matrix";
             this.btnView.UseVisualStyleBackColor = true;
@@ -230,22 +232,23 @@ namespace DataMining_Project_IT_22
             // dgvData
             // 
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Location = new System.Drawing.Point(11, 75);
+            this.dgvData.Location = new System.Drawing.Point(10, 60);
             this.dgvData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvData.Name = "dgvData";
             this.dgvData.RowHeadersWidth = 62;
             this.dgvData.RowTemplate.Height = 28;
-            this.dgvData.Size = new System.Drawing.Size(854, 458);
+            this.dgvData.Size = new System.Drawing.Size(759, 366);
             this.dgvData.TabIndex = 14;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
+            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             // 
             // btnImport
             // 
             this.btnImport.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.Location = new System.Drawing.Point(11, 12);
+            this.btnImport.Location = new System.Drawing.Point(10, 10);
             this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(125, 49);
+            this.btnImport.Size = new System.Drawing.Size(111, 39);
             this.btnImport.TabIndex = 13;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -257,19 +260,18 @@ namespace DataMining_Project_IT_22
             this.pnlResult.Controls.Add(this.btnExport);
             this.pnlResult.Controls.Add(this.dgvResult);
             this.pnlResult.Controls.Add(this.btnBack);
-            this.pnlResult.Location = new System.Drawing.Point(304, 14);
-            this.pnlResult.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlResult.Location = new System.Drawing.Point(270, 11);
             this.pnlResult.Name = "pnlResult";
-            this.pnlResult.Size = new System.Drawing.Size(880, 554);
+            this.pnlResult.Size = new System.Drawing.Size(782, 443);
             this.pnlResult.TabIndex = 23;
             // 
             // btnExport
             // 
             this.btnExport.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Location = new System.Drawing.Point(740, 12);
+            this.btnExport.Location = new System.Drawing.Point(658, 10);
             this.btnExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(125, 49);
+            this.btnExport.Size = new System.Drawing.Size(111, 39);
             this.btnExport.TabIndex = 15;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -279,23 +281,23 @@ namespace DataMining_Project_IT_22
             // 
             this.dgvResult.AllowUserToAddRows = false;
             this.dgvResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResult.Location = new System.Drawing.Point(11, 75);
+            this.dgvResult.Location = new System.Drawing.Point(10, 60);
             this.dgvResult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.ReadOnly = true;
             this.dgvResult.RowHeadersVisible = false;
             this.dgvResult.RowHeadersWidth = 62;
             this.dgvResult.RowTemplate.Height = 28;
-            this.dgvResult.Size = new System.Drawing.Size(854, 458);
+            this.dgvResult.Size = new System.Drawing.Size(759, 366);
             this.dgvResult.TabIndex = 14;
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(11, 12);
+            this.btnBack.Location = new System.Drawing.Point(10, 10);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(267, 49);
+            this.btnBack.Size = new System.Drawing.Size(237, 39);
             this.btnBack.TabIndex = 13;
             this.btnBack.Text = "View Original Data";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -303,14 +305,13 @@ namespace DataMining_Project_IT_22
             // 
             // Proxy_MAtrix
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlData);
             this.Controls.Add(this.pnlResult);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Proxy_MAtrix";
-            this.Size = new System.Drawing.Size(1199, 581);
+            this.Size = new System.Drawing.Size(1066, 465);
             this.Load += new System.EventHandler(this.Proxy_MAtrix_Load);
             this.pnlMenu.ResumeLayout(false);
             this.gbProxMatrix.ResumeLayout(false);
