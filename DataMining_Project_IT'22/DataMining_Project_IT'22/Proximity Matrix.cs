@@ -41,6 +41,12 @@ namespace DataMining_Project_IT_22
                 }
                 cbRecordName.SelectedIndex = 0;
                 pnlMenu.Enabled = true;
+
+                selected1 = "1";
+                selected2 = "2";
+                lblReset_Click(sender, e);
+
+                btnView.Visible = false;
             }
         }
         private void Proxy_MAtrix_Load(object sender, EventArgs e)

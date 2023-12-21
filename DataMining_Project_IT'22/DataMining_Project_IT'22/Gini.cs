@@ -41,6 +41,8 @@ namespace DataMining_Project_IT_22
                 cbClass.SelectedIndex = dgvData.Columns.Count - 1;
 
                 pnlMenu.Enabled = true;
+                lblInfo.Text = "";
+                lblResult.Text = "";
             }
         }
 

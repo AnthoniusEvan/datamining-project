@@ -36,6 +36,9 @@ namespace DataMining_Project_IT_22
                 else dgvData.DataSource = ProjectLib.NewDataTable(path, ",", true);
                 pnlMenu.Enabled = true;
                 nudK.Maximum = dgvData.Rows.Count-1;
+
+                lblInfo.Text = "";
+                btnViewResult.Visible = false;
             }
         }
         List<List<double>> res;
@@ -100,6 +103,7 @@ namespace DataMining_Project_IT_22
             }
             lblInfo.BackColor = Color.LightSteelBlue;
             pnlResult.BringToFront();
+            btnViewResult.Visible = true;
         }
 
         private void btnResetTable_Click(object sender, EventArgs e)
